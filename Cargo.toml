@@ -1,0 +1,51 @@
+[package]
+name = "norx"
+version = "0.1.0"
+edition = "2025"
+description = "A high-performance network intrusion detection and prevention system written in Rust"
+authors = ["Nexriel"]
+readme = "README.md"
+license = "MIT"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+# Packet parsing
+pnet = "0.33.0"
+etherparse = "0.13.0"
+
+# Pattern matching
+aho-corasick = "1.0.2"
+regex = "1.9.1"
+
+# Rule parsing
+nom = "7.1.3"
+
+# Concurrency
+tokio = { version = "1.29.1", features = ["full"] }
+rayon = "1.7.0"
+
+# Logging
+tracing = "0.1.37"
+tracing-subscriber = "0.3.17"
+log = "0.4.19"
+
+# Configuration
+serde = { version = "1.0.171", features = ["derive"] }
+toml = "0.7.6"
+config = "0.13.3"
+
+# Packet capture
+pcap = "1.1.0"
+
+# Command line
+clap = { version = "4.3.11", features = ["derive"] }
+
+# Error handling
+thiserror = "1.0.43"
+anyhow = "1.0.72"
+
+[dev-dependencies]
+criterion = "0.5.1"
+mockall = "0.11.4"
+test-case = "3.1.0"

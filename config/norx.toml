@@ -1,0 +1,28 @@
+# Norx Configuration File
+
+[general]
+daemon = false
+threads = 4
+rules_path = "rules"
+
+[capture]
+# Uncomment one of these options
+# interface = "eth0"
+# pcap_file = "capture.pcap"
+bpf_filter = "not port 22"
+promiscuous = true
+buffer_size = 65536
+
+[detection]
+enabled = true
+rule_files = ["default.rules"]
+preprocessors = ["stream", "http", "dns", "tls"]
+max_pattern_size = 1024
+flow_timeout = 60
+
+[logging]
+log_level = "info"
+log_file = "norx.log"
+alert_file = "alerts.log"
+syslog = false
+stats_interval = 300
